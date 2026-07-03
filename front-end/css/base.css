@@ -1,0 +1,426 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#fff;
+    color:#111;
+
+}
+
+header{
+
+    max-width:1300px;
+    margin:auto;
+
+    padding:30px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.menu-esquerda,
+.menu-direita{
+
+    display:flex;
+    gap:15px;
+    align-items:center;
+
+}
+
+.menu-esquerda a{
+
+    text-decoration:none;
+    background:#dbe7ff;
+    color:#222;
+    padding:12px 22px;
+    border-radius:30px;
+    transition: all 0.3s ease;
+
+}
+
+.menu-esquerda a:hover,
+.contato:hover{
+    transform: scale(1.08);
+}
+
+.logo{
+
+    width:170px;
+
+}
+
+.menu-direita span{
+
+    font-size:20px;
+
+}
+
+.contato{
+
+    text-decoration:none;
+    color:white;
+    background:#1d3d85;
+    padding:12px 24px;
+    border-radius:30px;
+    transition: all 0.3s ease;
+
+}
+
+.hero{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:60px 40px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+.hero h1{
+
+    font-size:64px;
+    line-height:1.1;
+    font-weight:700;
+
+}
+
+.hero span{
+
+    color:#3d78ea;
+
+}
+
+.hero p{
+
+    margin:30px 0;
+
+    color:#444;
+
+    font-size:22px;
+
+}
+
+.botoes{
+
+    display:flex;
+    gap:20px;
+
+}
+
+.btn{
+
+    padding:18px 40px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+}
+
+.azul{
+    background: #173a81;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.azul:hover{
+    transform: scale(1.08);
+}
+
+
+
+.claro{
+
+    background:#d7e4ff;
+    color:#333;
+    transition: 0.3s ease;
+
+}
+
+.claro:hover{
+    transform: scale(1.06);
+}
+
+.galeria{
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+
+}
+
+.galeria img{
+
+    width:100%;
+    object-fit:cover;
+    border-radius:35px;
+
+}
+
+.duas{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+
+}
+
+.cards{
+
+    max-width:1300px;
+
+    margin:80px auto;
+
+    padding:0 40px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+}
+
+.cards h2{
+
+    margin-bottom:20px;
+    font-size:34px;
+
+}
+
+.tags{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+
+}
+
+.tags span{
+
+    border:1px solid #ccc;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+}
+
+.funciona{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:80px 40px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+
+}
+
+.funciona img{
+
+    width:100%;
+
+    border-radius:40px;
+
+}
+
+.funciona h2{
+
+    font-size:52px;
+
+    margin-bottom:30px;
+
+}
+
+.funciona h2 span{
+
+    color:#2f6cdf;
+
+}
+
+.box{
+
+    background:#d8e6ff;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    margin-bottom:20px;
+
+}
+
+.box h3{
+
+    font-size:30px;
+    margin-bottom:10px;
+
+}
+
+.box p{
+
+    font-size:24px;
+
+}
+
+@media(max-width:992px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.funciona{
+
+grid-template-columns:1fr;
+
+}
+
+header{
+
+flex-direction:column;
+gap:20px;
+
+}
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+.sobre{
+
+    padding:70px 20px 40px;
+
+}
+
+.sobre h1{
+
+    font-size:50px;
+
+}
+
+.subtitulo{
+
+    font-size:20px;
+
+}
+
+.bloco{
+
+    font-size:18px;
+
+    padding:30px;
+
+}
+
+}
+
+
+/* ---------- SOBRE ---------- */
+
+.sobre{
+
+    text-align:center;
+
+    padding:120px 20px 70px;
+
+}
+
+.subtitulo{
+
+    font-size:28px;
+
+    font-weight:500;
+
+    margin-bottom:10px;
+
+}
+
+.sobre h1{
+
+    font-size:82px;
+
+    line-height:1.1;
+
+    font-weight:700;
+
+}
+
+.sobre h1 span{
+
+    color:#2f6cdf;
+
+}
+
+.sobre-textos{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:0 40px 80px;
+
+}
+
+.bloco{
+
+    padding:45px;
+
+    margin-bottom:35px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    font-size:28px;
+
+    line-height:1.6;
+
+}
+
+.bloco-azul{
+    background: #173a81;
+    color: white;
+}
+
+.bloco-claro{
+    background:#d7e4ff;
+    color:#333;
+}
+
+
+@view-transition {
+    navigation: auto;
+}
