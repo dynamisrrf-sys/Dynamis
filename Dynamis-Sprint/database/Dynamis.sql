@@ -1,93 +1,263 @@
-CREATE TABLE Usuario (
-    id_usuario SERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
+-- ============================================
+-- TABELA: ESTABELECIMENTO
+-- ============================================
+
+CREATE TABLE estabelecimento (
+    id_estabelecimento INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    razao_social VARCHAR(150) NOT NULL,
+    cnpj CHAR(14) NOT NULL UNIQUE,
+    tipo_estabelecimento VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
     telefone VARCHAR(20),
-    tipo_usuario VARCHAR(30) NOT NULL,
-    data_cadastro TIMESTAMP NOT NULL
+    endereco VARCHAR(150) NOT NULL,
+    complemento VARCHAR(100),
+    bairro VARCHAR(80),
+    cidade VARCHAR(80) NOT NULL,
+    cep CHAR(8),
+    responsavel VARCHAR(100) NOT NULL,
+    status_cadastro BOOLEAN NOT NULL DEFAULT TRUE,
+    data_cadastro DATE NOT NULL
 );
 
-CREATE TABLE Estabelecimento (
-    id_estabelecimento SERIAL PRIMARY KEY,
-    id_usuario INT NOT NULL,
-    nome_fantasia VARCHAR(100) NOT NULL,
-    cnpj CHAR(18) UNIQUE,
-    categoria VARCHAR(50) NOT NULL,
-    endereco VARCHAR(255) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
 
-    CONSTRAINT fk_estabelecimento_usuario
-        FOREIGN KEY (id_usuario)
-        REFERENCES Usuario(id_usuario)
+-- ============================================
+-- TABELA: CONSUMIDOR
+-- ============================================
+
+CREATE TABLE consumidor (
+    id_consumidor INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    nome VARCHAR(120) NOT NULL,
+    cpf CHAR(11) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20),
+    endereco VARCHAR(150),
+    cidade VARCHAR(80),
+    cep CHAR(8),
+    data_cadastro DATE NOT NULL
 );
 
-CREATE TABLE Alimento (
-    id_alimento SERIAL PRIMARY KEY,
+
+-- ============================================
+-- TABELA: INSTITUICAO
+-- ============================================
+
+CREATE TABLE instituicao (
+    id_instituicao INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    cnpj CHAR(14) UNIQUE,
+    responsavel VARCHAR(100),
+    telefone VARCHAR(20),
+    email VARCHAR(100),
+    endereco VARCHAR(150),
+    cidade VARCHAR(80),
+    status BOOLEAN DEFAULT TRUE
+);
+
+
+-- ============================================
+-- TABELA: EXCEDENTE
+-- ============================================
+
+CREATE TABLE excedente (
+    id_excedente INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     id_estabelecimento INT NOT NULL,
-    nome VARCHAR(100) NOT NULL,
-    categoria VARCHAR(50) NOT NULL,
-    descricao VARCHAR(500),
-    quantidade FLOAT NOT NULL,
-    unidade VARCHAR(20) NOT NULL,
+    nome_alimento VARCHAR(120) NOT NULL,
+    categoria_alimento VARCHAR(60),
+    descricao TEXT,
+    quantidade DECIMAL(10,2) NOT NULL,
+    unidade_medida VARCHAR(20) NOT NULL,
+    data_producao DATE,
     validade DATE NOT NULL,
-    status VARCHAR(30) NOT NULL,
-    foto VARCHAR(255),
+    condicao_alimento VARCHAR(50),
+    temperatura_conservacao DECIMAL(5,2),
+    embalagem VARCHAR(60),
+    data_publicacao TIMESTAMP NOT NULL,
+    horario_disponibilidade TIMESTAMP,
+    urgencia VARCHAR(20),
+    destino VARCHAR(30),
+    status VARCHAR(30) DEFAULT 'Disponível',
+    observacoes TEXT,
 
-    CONSTRAINT fk_alimento_estabelecimento
+    CONSTRAINT fk_excedente_estabelecimento
         FOREIGN KEY (id_estabelecimento)
-        REFERENCES Estabelecimento(id_estabelecimento)
+        REFERENCES estabelecimento(id_estabelecimento)
 );
 
-CREATE TABLE Solicitacao (
-    id_solicitacao SERIAL PRIMARY KEY,
-    id_usuario INT NOT NULL,
-    id_alimento INT NOT NULL,
-    data_solicitacao TIMESTAMP NOT NULL,
-    status VARCHAR(30) NOT NULL,
-    observacao VARCHAR(500),
 
-    CONSTRAINT fk_solicitacao_usuario
-        FOREIGN KEY (id_usuario)
-        REFERENCES Usuario(id_usuario),
+-- ============================================
+-- TABELA: CLASSIFICACAO
+-- ============================================
 
-    CONSTRAINT fk_solicitacao_alimento
-        FOREIGN KEY (id_alimento)
-        REFERENCES Alimento(id_alimento)
+CREATE TABLE classificacao (
+    id_classificacao INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id_excedente INT NOT NULL,
+    aptidao_consumo BOOLEAN NOT NULL,
+    destino VARCHAR(30) NOT NULL,
+    prioridade VARCHAR(20),
+    justificativa TEXT,
+    data_classificacao TIMESTAMP NOT NULL,
+    responsavel_classificacao VARCHAR(100),
+    observacoes TEXT,
+
+    CONSTRAINT fk_classificacao_excedente
+        FOREIGN KEY (id_excedente)
+        REFERENCES excedente(id_excedente)
 );
 
-CREATE TABLE Retirada (
-    id_retirada SERIAL PRIMARY KEY,
-    id_solicitacao INT NOT NULL,
-    data_retirada TIMESTAMP NOT NULL,
-    horario TIME NOT NULL,
-    confirmado BOOLEAN NOT NULL,
 
-    CONSTRAINT fk_retirada_solicitacao
-        FOREIGN KEY (id_solicitacao)
-        REFERENCES Solicitacao(id_solicitacao)
+-- ============================================
+-- TABELA: OFERTA
+-- ============================================
+
+CREATE TABLE oferta (
+    id_oferta INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id_excedente INT NOT NULL,
+    id_estabelecimento INT NOT NULL,
+
+    nome_oferta VARCHAR(120) NOT NULL,
+    descricao TEXT,
+
+    quantidade_disponivel DECIMAL(10,2) NOT NULL,
+
+    preco_original DECIMAL(10,2),
+    preco_desconto DECIMAL(10,2),
+
+    percentual_desconto DECIMAL(5,2),
+
+    data_inicio DATE,
+    data_fim DATE,
+
+    horario_inicio_retirada TIME,
+    horario_fim_retirada TIME,
+
+    localizacao_retirada VARCHAR(150),
+
+    status VARCHAR(30) DEFAULT 'Ativa',
+
+    CONSTRAINT fk_oferta_excedente
+        FOREIGN KEY (id_excedente)
+        REFERENCES excedente(id_excedente),
+
+    CONSTRAINT fk_oferta_estabelecimento
+        FOREIGN KEY (id_estabelecimento)
+        REFERENCES estabelecimento(id_estabelecimento)
 );
 
-CREATE TABLE Destinacao (
-    id_destinacao SERIAL PRIMARY KEY,
-    id_alimento INT NOT NULL,
-    tipo_destino VARCHAR(30) NOT NULL,
-    data_destino TIMESTAMP NOT NULL,
-    observacao VARCHAR(500),
 
-    CONSTRAINT fk_destinacao_alimento
-        FOREIGN KEY (id_alimento)
-        REFERENCES Alimento(id_alimento)
+-- ============================================
+-- TABELA: RESERVA
+-- ============================================
+
+CREATE TABLE reserva (
+    id_reserva INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+
+    id_consumidor INT NOT NULL,
+    id_oferta INT NOT NULL,
+
+    quantidade DECIMAL(10,2) NOT NULL,
+
+    valor_unitario DECIMAL(10,2),
+    valor_total DECIMAL(10,2),
+
+    data_reserva DATE NOT NULL,
+    horario_reserva TIME,
+
+    horario_retirada TIME,
+
+    codigo_retirada VARCHAR(30) UNIQUE,
+
+    status VARCHAR(30) DEFAULT 'Reservada',
+
+    data_cancelamento DATE,
+
+    motivo_cancelamento TEXT,
+
+    confirmacao_retirada BOOLEAN DEFAULT FALSE,
+
+    CONSTRAINT fk_reserva_consumidor
+        FOREIGN KEY (id_consumidor)
+        REFERENCES consumidor(id_consumidor),
+
+    CONSTRAINT fk_reserva_oferta
+        FOREIGN KEY (id_oferta)
+        REFERENCES oferta(id_oferta)
 );
 
-CREATE TABLE Pontuacao (
-    id_pontuacao SERIAL PRIMARY KEY,
-    id_usuario INT NOT NULL,
-    pontos INT NOT NULL,
-    nivel VARCHAR(30) NOT NULL,
-    ultima_atualizacao TIMESTAMP NOT NULL,
 
-    CONSTRAINT fk_pontuacao_usuario
-        FOREIGN KEY (id_usuario)
-        REFERENCES Usuario(id_usuario)
+-- ============================================
+-- TABELA: DOACAO
+-- ============================================
+
+CREATE TABLE doacao (
+    id_doacao INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+
+    id_excedente INT NOT NULL,
+    id_estabelecimento INT NOT NULL,
+    id_instituicao INT NOT NULL,
+
+    alimento VARCHAR(120),
+
+    quantidade DECIMAL(10,2),
+
+    unidade_medida VARCHAR(20),
+
+    condicao_alimento VARCHAR(50),
+
+    validade DATE,
+
+    data_disponibilizacao DATE,
+
+    data_aceite DATE,
+
+    data_retirada DATE,
+
+    data_entrega DATE,
+
+    responsavel_retirada VARCHAR(100),
+
+    status VARCHAR(30) DEFAULT 'Pendente',
+
+    CONSTRAINT fk_doacao_excedente
+        FOREIGN KEY (id_excedente)
+        REFERENCES excedente(id_excedente),
+
+    CONSTRAINT fk_doacao_estabelecimento
+        FOREIGN KEY (id_estabelecimento)
+        REFERENCES estabelecimento(id_estabelecimento),
+
+    CONSTRAINT fk_doacao_instituicao
+        FOREIGN KEY (id_instituicao)
+        REFERENCES instituicao(id_instituicao)
 );
+
+
+-- ============================================
+-- TABELA: DESCARTE
+-- ============================================
+
+CREATE TABLE descarte (
+    id_descarte INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+
+    id_excedente INT NOT NULL,
+
+    destino VARCHAR(80) NOT NULL,
+
+    motivo TEXT,
+
+    data_descarte TIMESTAMP NOT NULL,
+
+    responsavel VARCHAR(100),
+
+    observacoes TEXT,
+
+    CONSTRAINT fk_descarte_excedente
+        FOREIGN KEY (id_excedente)
+        REFERENCES excedente(id_excedente)
+);
+
+
+-- ============================================
+-- FIM DO SCRIPT
+-- ============================================
