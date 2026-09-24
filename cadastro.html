@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DYNAMIS - Cadastro</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro — DYNAMIS</title><link rel="stylesheet" href="css/style.css">
 </head>
 <body class="auth-body">
-
-  <div class="auth-bg-shape"></div>
-
-  <a href="index.html" class="auth-home-icon"><i class="fa-solid fa-house"></i></a>
-
-  <a href="index.html">
-    <img src="img/logo.png" alt="DYNAMIS" class="auth-logo">
-  </a>
-
-  <div class="auth-illustration">
-    <!-- ALTERE O CAMINHO ABAIXO CASO O NOME DO ARQUIVO SEJA DIFERENTE -->
-    <img src="img/auth-ilustracao.png" alt="Ilustração DYNAMIS">
-  </div>
-
-  <div class="auth-wrapper">
-    <div class="auth-card">
-      <h1>Cadastro</h1>
-
-      <form id="cadastro-form">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" required>
-        </div>
-
-        <button type="submit" class="btn-auth">Cadastrar</button>
-      </form>
-
-      <p class="auth-link">Já tem uma conta? <a href="login.html">Acesse aqui</a></p>
-    </div>
-  </div>
-
-  <script src="js/script.js"></script>
+  <main class="auth-layout">
+    <section class="auth-showcase">
+      <a href="index.html" class="brand"><img src="img/logo.png" alt="DYNAMIS"></a>
+      <div class="auth-message" data-reveal><p class="eyebrow light"><span></span> Entre para a rede</p><h1>Transforme excedentes em <em>novas possibilidades.</em></h1><p>Crie sua conta e conecte alimentos, pessoas e destinos com mais inteligência.</p></div>
+      <img class="auth-art" src="img/auth-ilustracao.png" alt="Ilustração da rede DYNAMIS">
+    </section>
+    <section class="auth-panel">
+      <a class="auth-home" href="index.html">← Voltar ao início</a>
+      <div class="auth-card" data-reveal>
+        <p class="eyebrow"><span></span> Primeiro passo</p><h2>Criar conta</h2><p class="auth-subtitle">Comece a fazer parte do ecossistema DYNAMIS.</p>
+        <form id="cadastro-form" data-auth-form="cadastro">
+          <div class="form-group"><label for="tipo_perfil">Quero usar a DYNAMIS como</label><select id="tipo_perfil" name="tipo_perfil" required><option value="consumidor">Consumidor ou instituição</option><option value="estabelecimento">Estabelecimento</option><option value="agente">Agente de destinação</option></select></div>
+          <div class="form-group"><label for="nome">Nome</label><input type="text" id="nome" name="nome" autocomplete="name" placeholder="Nome completo ou nome do negócio" required></div>
+          <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email" placeholder="voce@exemplo.com" required></div>
+          <div class="form-group"><label for="senha">Senha</label><input type="password" id="senha" name="password" autocomplete="new-password" minlength="6" placeholder="Crie uma senha" required></div>
+          <div class="form-group"><label for="documento" data-document-label>CPF</label><input type="text" id="documento" name="documento" inputmode="numeric" required></div>
+          <div class="form-group"><label for="tipo">Tipo de atividade</label><input type="text" id="tipo" name="tipo" placeholder="Ex.: pessoa física, mercado, cooperativa" required></div>
+          <div class="form-group" data-responsible-group hidden><label for="responsavel">Responsável</label><input type="text" id="responsavel" name="responsavel"></div>
+          <div class="form-group"><label for="telefone">Telefone</label><input type="tel" id="telefone" name="telefone" autocomplete="tel"></div>
+          <div class="form-group"><label for="cidade">Cidade</label><input type="text" id="cidade" name="cidade" autocomplete="address-level2"></div>
+          <button type="submit" class="btn-auth">Criar minha conta</button>
+        </form>
+        <p class="auth-feedback" data-auth-feedback hidden></p>
+        <p class="auth-link">Já possui uma conta? <a href="login.html">Entrar agora</a></p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/auth.js"></script>
 </body>
 </html>

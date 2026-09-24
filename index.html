@@ -1,105 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DYNAMIS - Transformando excedentes alimentares em impacto real</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DYNAMIS conecta excedentes alimentares a consumidores, instituições e destinos sustentáveis.">
+  <title>DYNAMIS — Alimento em movimento, impacto de verdade</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-  <!-- ===================== HEADER ===================== -->
-  <header class="site-header">
-    <div class="header-left">
-      <a href="index.html" class="nav-pill"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="sobre.html" class="nav-pill"><i class="fa-solid fa-circle-info"></i> Sobre</a>
-    </div>
-
-    <a href="index.html" class="logo-link">
-      <!-- ALTERE O CAMINHO ABAIXO CASO O NOME DO ARQUIVO DA LOGO SEJA DIFERENTE -->
-      <img src="img/logo.png" alt="DYNAMIS" class="logo">
-    </a>
-
-    <div class="header-right">
-      <span class="phone">44 XXXX-XXXX</span>
-      <a href="#contato" class="btn-contato"><i class="fa-solid fa-phone"></i> Contato</a>
+<body class="page-home">
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <a href="index.html" class="brand" aria-label="DYNAMIS — página inicial"><img src="img/logo.png" alt="DYNAMIS"></a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+        <a href="#solucoes">Soluções</a><a href="#como-funciona">Como funciona</a><a href="sobre.html">Sobre</a>
+      </nav>
+      <a href="#contato" class="header-cta">Fale com a gente <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Transformando excedentes alimentares em <span class="highlight">impacto real</span></h1>
-      <p>O DYNAMIS conecta estabelecimentos, consumidores e instituições para reduzir desperdícios, otimizar a gestão de alimentos e gerar valor social, ambiental e econômico em tempo real.</p>
-      <div class="hero-buttons">
-        <a href="cadastro.html" class="btn btn-dark">Começar Agora</a>
-        <a href="sobre.html" class="btn btn-light">Saiba Mais</a>
-      </div>
-    </div>
-
-    <div class="hero-images">
-      <!-- ALTERE OS CAMINHOS ABAIXO CASO OS NOMES DOS ARQUIVOS SEJAM DIFERENTES -->
-      <img src="img/home-1.jpg" alt="Doação de alimentos" class="img-top">
-      <img src="img/home-2.jpg" alt="Separação de alimentos" class="img-bottom-left">
-      <img src="img/home-3.jpg" alt="Entrega de alimentos" class="img-bottom-right">
-    </div>
-  </section>
-
-  <!-- ===================== SOLUÇÕES / SEGMENTOS ===================== -->
-  <section class="tags-section">
-    <div>
-      <h2>SOLUÇÕES</h2>
-      <div class="tag-grid">
-        <div class="tag-pill">Gestão de excedentes</div>
-        <div class="tag-pill">Destinação inteligente</div>
-        <div class="tag-pill">Doação segura</div>
-        <div class="tag-pill">Compostagem correta</div>
-        <div class="tag-pill">Gestão de desperdício</div>
-        <div class="tag-pill">Dashboard ESG</div>
-      </div>
-    </div>
-
-    <div>
-      <h2>SEGMENTOS</h2>
-      <div class="tag-grid">
-        <div class="tag-pill">Restaurantes</div>
-        <div class="tag-pill">Padarias</div>
-        <div class="tag-pill">Mercados</div>
-        <div class="tag-pill">Hortifrutis</div>
-        <div class="tag-pill">Distribuidoras</div>
-        <div class="tag-pill">ONGs</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== COMO O DYNAMIS FUNCIONA ===================== -->
-  <section class="how-it-works">
-    <!-- ALTERE O CAMINHO ABAIXO CASO O NOME DO ARQUIVO SEJA DIFERENTE -->
-    <img src="img/como-funciona.jpg" alt="Como o DYNAMIS funciona">
-
-    <div>
-      <h2>Como o <span class="highlight">DYNAMIS</span> funciona</h2>
-
-      <div class="how-card">
-        <h3>Consumo com desconto</h3>
-        <p>Alimentos ainda comercializáveis.</p>
+  <main>
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal><span></span> Tecnologia contra o desperdício</p>
+        <h1 id="hero-title" data-split>Alimento em movimento. <em>Impacto de verdade.</em></h1>
+        <p class="hero-description" data-reveal>Conectamos estabelecimentos, consumidores e instituições para que cada excedente encontre o melhor destino — com agilidade, rastreabilidade e propósito.</p>
+        <div class="hero-actions" data-reveal>
+          <a href="cadastro.html" class="button button-primary">Começar agora <span aria-hidden="true">→</span></a>
+          <a href="#como-funciona" class="button button-secondary">Ver como funciona</a>
+        </div>
+        <div class="hero-stats" data-reveal>
+          <div><strong data-count="3">0</strong><span>destinos inteligentes</span></div>
+          <div><strong data-count="100" data-suffix="%">0</strong><span>operações rastreáveis</span></div>
+          <div><strong data-count="1">0</strong><span>ecossistema conectado</span></div>
+        </div>
       </div>
 
-      <div class="how-card">
-        <h3>Doação segura</h3>
-        <p>Destinação social rastreável.</p>
+      <div class="hero-visual" data-reveal aria-label="Rede DYNAMIS em ação">
+        <figure class="photo-card photo-main"><div class="photo-clip"><img src="img/home-1.jpg" alt="Alimentos sendo separados para doação"></div></figure>
+        <figure class="photo-card photo-left"><div class="photo-clip"><img src="img/home-2.jpg" alt="Organização de alimentos excedentes"></div></figure>
+        <figure class="photo-card photo-right"><div class="photo-clip"><img src="img/home-3.jpg" alt="Entrega responsável de alimentos"></div></figure>
       </div>
+    </section>
 
-      <div class="how-card">
-        <h3>Compostagem correta</h3>
-        <p>Descarte ambiental responsável.</p>
+    <section class="solutions section-shell" id="solucoes">
+      <div class="section-heading" data-reveal>
+        <p class="eyebrow"><span></span> Um ecossistema completo</p>
+        <h2>Cada alimento no <em>destino certo</em></h2>
+        <p>Da identificação do excedente ao relatório de impacto, a DYNAMIS organiza toda a jornada.</p>
       </div>
-    </div>
-  </section>
+      <div class="solution-grid">
+        <article class="solution-card card-featured" data-reveal><span class="card-number">01</span><div class="card-icon">↗</div><h3>Gestão de excedentes</h3><p>Cadastre itens em tempo real e visualize oportunidades antes que o alimento perca seu valor.</p></article>
+        <article class="solution-card" data-reveal><span class="card-number">02</span><div class="card-icon">◎</div><h3>Destinação inteligente</h3><p>Registre a decisão entre oferta, doação e destinação ambiental.</p></article>
+        <article class="solution-card" data-reveal><span class="card-number">03</span><div class="card-icon">✓</div><h3>Reserva e retirada</h3><p>Organize reservas, códigos de retirada e confirmações com rastreabilidade.</p></article>
+        <article class="solution-card card-dark" data-reveal><span class="card-number">04</span><div class="card-icon">◒</div><h3>Histórico operacional</h3><p>Acompanhe origem, classificação, destino e responsável por cada excedente.</p></article>
+      </div>
+      <div class="segments" data-reveal>
+        <p>Feito para quem movimenta alimentos</p>
+        <div class="segment-list"><span>Restaurantes</span><span>Padarias</span><span>Mercados</span><span>Hortifrutis</span><span>Distribuidoras</span><span>ONGs</span></div>
+      </div>
+    </section>
 
-  <div id="contato"></div>
+    <section class="process section-shell" id="como-funciona">
+      <div class="process-media" data-reveal>
+        <div class="process-image"><img src="img/como-funciona.jpg" alt="Equipe organizando a destinação de alimentos"></div>
+        <div class="image-caption"><span>Impacto que circula</span><strong>Do excedente à oportunidade</strong></div>
+      </div>
+      <div class="process-copy">
+        <div class="section-heading" data-reveal><p class="eyebrow"><span></span> Simples por design</p><h2>Como a <em>DYNAMIS</em> funciona</h2></div>
+        <div class="process-list">
+          <article data-reveal><span>01</span><div><h3>Publique o excedente</h3><p>Informe quantidade, validade e disponibilidade em poucos passos.</p></div></article>
+          <article data-reveal><span>02</span><div><h3>Encontre o melhor destino</h3><p>A rede conecta o item à opção mais adequada, próxima e segura.</p></div></article>
+          <article data-reveal><span>03</span><div><h3>Acompanhe o impacto</h3><p>Monitore retiradas, destinos e indicadores em um só lugar.</p></div></article>
+        </div>
+      </div>
+    </section>
 
+    <section class="contact-section" id="contato">
+      <div class="contact-inner section-shell" data-reveal>
+        <p class="eyebrow light"><span></span> Vamos transformar juntos</p>
+        <h2>Seu excedente pode gerar o próximo <em>grande impacto.</em></h2>
+        <div class="contact-actions"><a href="cadastro.html" class="button button-white">Criar minha conta <span aria-hidden="true">→</span></a><a href="tel:+554400000000" class="contact-phone">44 XXXX-XXXX</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell"><a href="index.html" class="brand"><img src="img/logo.png" alt="DYNAMIS"></a><p>Alimentos conectados a um futuro melhor.</p><p>© 2026 DYNAMIS</p></footer>
   <script src="js/script.js"></script>
 </body>
 </html>

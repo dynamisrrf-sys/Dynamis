@@ -1,48 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DYNAMIS - Entrar</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar — DYNAMIS</title><link rel="stylesheet" href="css/style.css">
 </head>
 <body class="auth-body">
-
-  <div class="auth-bg-shape"></div>
-
-  <a href="index.html" class="auth-home-icon"><i class="fa-solid fa-house"></i></a>
-
-  <a href="index.html">
-    <img src="img/logo.png" alt="DYNAMIS" class="auth-logo">
-  </a>
-
-  <div class="auth-illustration">
-    <img src="img/auth-ilustracao.png" alt="Ilustração DYNAMIS">
-  </div>
-
-  <div class="auth-wrapper">
-    <div class="auth-card">
-      <h1>Entrar</h1>
-
-      <form id="login-form">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" required>
-        </div>
-
-        <button type="submit" class="btn-auth">Entrar</button>
-      </form>
-
-      <p class="auth-link">Não tem uma conta? <a href="cadastro.html">Criar conta</a></p>
-    </div>
-  </div>
-
-  <script src="js/script.js"></script>
+  <main class="auth-layout">
+    <section class="auth-showcase">
+      <a href="index.html" class="brand"><img src="img/logo.png" alt="DYNAMIS"></a>
+      <div class="auth-message" data-reveal><p class="eyebrow light"><span></span> Bem-vindo de volta</p><h1>Continue criando <em>impacto real.</em></h1><p>Acesse sua conta para gerenciar excedentes, conexões e indicadores em um só lugar.</p></div>
+      <img class="auth-art" src="img/auth-ilustracao.png" alt="Ilustração da rede DYNAMIS">
+    </section>
+    <section class="auth-panel">
+      <a class="auth-home" href="index.html">← Voltar ao início</a>
+      <div class="auth-card" data-reveal>
+        <p class="eyebrow"><span></span> Área do usuário</p><h2>Entrar</h2><p class="auth-subtitle">Use seus dados para acessar a plataforma.</p>
+        <form id="login-form" data-auth-form="login">
+          <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email" placeholder="voce@exemplo.com" required></div>
+          <div class="form-group"><label for="senha">Senha</label><input type="password" id="senha" name="password" autocomplete="current-password" placeholder="Sua senha" required></div>
+          <button type="submit" class="btn-auth">Entrar na plataforma</button>
+        </form>
+        <p class="auth-feedback" data-auth-feedback hidden></p>
+        <p class="auth-link">Ainda não tem uma conta? <a href="cadastro.html">Criar conta</a></p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/auth.js"></script>
 </body>
 </html>

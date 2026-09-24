@@ -1,67 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DYNAMIS - Sobre</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça a missão e o impacto da DYNAMIS.">
+  <title>Sobre — DYNAMIS</title><link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- ===================== HEADER ===================== -->
-  <header class="site-header">
-    <div class="header-left">
-      <a href="index.html" class="nav-pill"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="sobre.html" class="nav-pill"><i class="fa-solid fa-circle-info"></i> Sobre</a>
-    </div>
-
-    <a href="index.html" class="logo-link">
-      <img src="img/logo.png" alt="DYNAMIS" class="logo">
-    </a>
-
-    <div class="header-right">
-      <span class="phone">44 XXXX-XXXX</span>
-      <a href="index.html#contato" class="btn-contato"><i class="fa-solid fa-phone"></i> Contato</a>
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <a href="index.html" class="brand" aria-label="DYNAMIS — página inicial"><img src="img/logo.png" alt="DYNAMIS"></a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal"><a href="index.html#solucoes">Soluções</a><a href="index.html#como-funciona">Como funciona</a><a href="sobre.html">Sobre</a></nav>
+      <a href="index.html#contato" class="header-cta">Fale com a gente <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
-  <!-- ===================== SOBRE HERO ===================== -->
-  <section class="sobre-hero">
-    <p class="eyebrow">QUEM SOMOS</p>
-    <h1>SOBRE O<br><span class="highlight">DYNAMIS</span></h1>
-  </section>
+  <main>
+    <section class="about-hero section-shell">
+      <p class="eyebrow" data-reveal><span></span> Quem somos</p>
+      <h1 data-split>Redesenhamos o caminho do <em>alimento excedente.</em></h1>
+      <p data-reveal>A DYNAMIS nasceu para transformar um problema urbano real em uma rede de valor social, ambiental e econômico.</p>
+    </section>
 
-  <!-- ===================== BLOCOS DE TEXTO ===================== -->
-  <section class="sobre-blocks">
-    <div class="sobre-block">
-      O DYNAMIS é uma plataforma de gestão de excedentes alimentares criada para conectar estabelecimentos, consumidores, instituições sociais e agentes de destinação correta em um único ecossistema inteligente.
-    </div>
+    <section class="about-manifesto section-shell" aria-label="Nossa missão e atuação">
+      <article class="about-card" data-reveal>
+        <span class="card-number">NOSSO PROPÓSITO</span>
+        <div><h2>Alimento ainda útil merece um destino melhor do que o descarte.</h2><p>Usamos tecnologia, rastreabilidade e coordenação logística para conectar quem possui excedentes a quem pode aproveitá-los.</p></div>
+      </article>
+      <article class="about-card" data-reveal>
+        <span class="card-number">O PROBLEMA</span>
+        <div><h2>Tempo e comunicação ainda desperdiçam valor.</h2><p>Toneladas de alimentos próprios para consumo são descartadas diariamente por falhas de logística e conexão entre os agentes da cidade.</p></div>
+      </article>
+      <article class="about-card" data-reveal>
+        <span class="card-number">A REDE</span>
+        <div><h2>Um ecossistema, vários agentes conectados.</h2><p>Restaurantes, mercados, padarias, hortifrutis, distribuidoras, consumidores e instituições sociais operam em um único ambiente.</p></div>
+      </article>
+      <article class="about-card" data-reveal>
+        <span class="card-number">DESTINAÇÃO</span>
+        <div><h2>Cada item segue a rota mais adequada.</h2><ul><li>Consumo com desconto</li><li>Doação segura</li><li>Compostagem correta</li></ul></div>
+      </article>
+      <article class="about-card" data-reveal>
+        <span class="card-number">IMPACTO</span>
+        <div><h2>Dados que tornam o impacto visível.</h2><p>A DYNAMIS melhora a eficiência dos estabelecimentos, fortalece práticas ESG e contribui com a ODS 2 da ONU para uma cadeia alimentar mais inteligente.</p></div>
+      </article>
+    </section>
 
-    <div class="sobre-block">
-      A proposta do projeto surge de um problema urbano real: toneladas de alimentos ainda próprios para consumo são descartadas diariamente por falhas de comunicação, logística e tempo entre quem possui o excedente e quem poderia aproveitá-lo.
-    </div>
+    <section class="contact-section">
+      <div class="contact-inner section-shell" data-reveal><p class="eyebrow light"><span></span> Faça parte da rede</p><h2>Uma cidade mais inteligente começa com <em>boas conexões.</em></h2><div class="contact-actions"><a href="cadastro.html" class="button button-white">Começar agora <span>→</span></a></div></div>
+    </section>
+  </main>
 
-    <div class="sobre-block">
-      Em vez de tratar o alimento excedente como lixo imediato, o DYNAMIS utiliza tecnologia, rastreabilidade e coordenação logística para direcionar cada item ao destino mais adequado:<br>
-      consumo com desconto;<br>
-      doação segura;<br>
-      compostagem ou descarte correto.
-    </div>
-
-    <div class="sobre-block">
-      A plataforma atua como uma infraestrutura digital de conexão, permitindo que restaurantes, mercados, padarias, hortifrutis e distribuidoras publiquem excedentes em tempo real, organizando retirada, classificação e monitoramento das operações.
-    </div>
-
-    <div class="sobre-block">
-      Além do impacto social, o DYNAMIS também reduz desperdícios, melhora a eficiência operacional dos estabelecimentos, fortalece práticas ESG e contribui para uma cadeia alimentar mais sustentável e inteligente.
-    </div>
-
-    <div class="sobre-block">
-      O projeto está alinhado à ODS 2 da ONU, promovendo segurança alimentar, redução de perdas evitáveis e melhor aproveitamento de recursos já produzidos.
-    </div>
-  </section>
-
+  <footer class="site-footer section-shell"><a href="index.html" class="brand"><img src="img/logo.png" alt="DYNAMIS"></a><p>Alimentos conectados a um futuro melhor.</p><p>© 2026 DYNAMIS</p></footer>
   <script src="js/script.js"></script>
 </body>
 </html>
