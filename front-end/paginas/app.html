@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel — DYNAMIS</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="app-body">
+  <aside class="app-sidebar" data-sidebar>
+    <a class="app-brand" href="index.html"><img src="img/logo.png" alt="DYNAMIS"></a>
+    <nav class="app-nav" aria-label="Área logada">
+      <button class="is-active" data-view-target="inicio"><span>⌂</span> Visão geral</button>
+      <button data-view-target="disponiveis" data-role="consumidor"><span>□</span> Disponíveis</button>
+      <button data-view-target="reservas" data-role="consumidor"><span>✓</span> Minhas reservas</button>
+      <button data-view-target="excedentes" data-role="estabelecimento"><span>□</span> Meus excedentes</button>
+      <button data-view-target="fluxo" data-role="estabelecimento"><span>→</span> Classificar e destinar</button>
+    </nav>
+    <div class="sidebar-footer"><span data-profile-type>Carregando perfil…</span><button data-logout>Sair</button></div>
+  </aside>
+
+  <div class="app-shell">
+    <header class="app-header">
+      <button class="sidebar-toggle" data-sidebar-toggle aria-label="Abrir menu">☰</button>
+      <div><p>Área DYNAMIS</p><strong data-profile-name>Carregando…</strong></div>
+      <button class="plain-button" data-refresh>Atualizar</button>
+    </header>
+
+    <main class="app-main">
+      <section class="app-view is-active" data-view="inicio">
+        <div class="page-title"><div><p class="kicker">Visão geral</p><h1>O que precisa de atenção hoje</h1></div><button class="primary-action" data-new-surplus data-role="estabelecimento">Cadastrar excedente</button></div>
+        <div class="summary-grid" data-summary><article><span>Excedentes ativos</span><strong>—</strong></article><article><span>Disponíveis</span><strong>—</strong></article><article><span>Reservas</span><strong>—</strong></article></div>
+        <div class="panel"><div class="panel-heading"><h2>Fluxo operacional</h2><span>Origem até conclusão</span></div><ol class="flow-steps"><li class="is-current"><span>1</span><div><strong>Cadastro</strong><small>Registrar o excedente</small></div></li><li><span>2</span><div><strong>Classificação</strong><small>Avaliar condição e prioridade</small></div></li><li><span>3</span><div><strong>Destinação</strong><small>Oferta, doação ou ambiental</small></div></li><li><span>4</span><div><strong>Retirada</strong><small>Confirmar o resultado</small></div></li></ol></div>
+      </section>
+
+      <section class="app-view" data-view="disponiveis">
+        <div class="page-title"><div><p class="kicker">Oportunidades</p><h1>Excedentes disponíveis</h1></div></div>
+        <div class="filter-row"><input type="search" placeholder="Buscar por nome ou categoria" data-search><select data-type-filter><option value="">Todos os destinos</option><option>Oferta</option><option>Doação</option><option>Destinação ambiental</option></select></div>
+        <div class="opportunity-grid" data-opportunities><p class="empty-state">Carregando oportunidades…</p></div>
+      </section>
+
+      <section class="app-view" data-view="reservas">
+        <div class="page-title"><div><p class="kicker">Acompanhamento</p><h1>Minhas reservas</h1></div></div>
+        <div class="panel table-panel"><div class="responsive-table"><table><thead><tr><th>Item</th><th>Retirada</th><th>Código</th><th>Valor</th><th>Status</th></tr></thead><tbody data-reservations><tr><td colspan="5">Carregando reservas…</td></tr></tbody></table></div></div>
+      </section>
+
+      <section class="app-view" data-view="excedentes">
+        <div class="page-title"><div><p class="kicker">Estabelecimento</p><h1>Meus excedentes</h1></div><button class="primary-action" data-new-surplus>Cadastrar excedente</button></div>
+        <div class="panel table-panel"><div class="responsive-table"><table><thead><tr><th>Produto</th><th>Quantidade</th><th>Validade</th><th>Urgência</th><th>Status</th></tr></thead><tbody data-surpluses><tr><td colspan="5">Carregando excedentes…</td></tr></tbody></table></div></div>
+      </section>
+
+      <section class="app-view" data-view="fluxo">
+        <div class="page-title"><div><p class="kicker">Decisão de destino</p><h1>Classificar e destinar</h1></div></div>
+        <div class="workflow-grid">
+          <form class="panel app-form" data-classification-form><div class="panel-heading"><div><span>Etapa 1</span><h2>Classificação</h2></div></div><label>ID do excedente<input name="id_excedente" type="number" min="1" required></label><label>Destino recomendado<select name="destino_recomendado" required><option value="">Selecione</option><option value="oferta">Oferta</option><option value="doacao">Doação</option><option value="ambiental">Destinação ambiental</option></select></label><label>Apto para consumo<select name="aptidao_consumo" required><option value="true">Sim</option><option value="false">Não</option></select></label><label>Prioridade<select name="prioridade"><option>normal</option><option>alta</option><option>urgente</option></select></label><label>Responsável<input name="responsavel" required></label><label>Justificativa<textarea name="justificativa" required></textarea></label><button class="primary-action" type="submit">Salvar classificação</button></form>
+          <form class="panel app-form" data-destination-form><div class="panel-heading"><div><span>Etapa 2</span><h2>Destinação</h2></div></div><label>ID da classificação<input name="id_classificacao" type="number" min="1" required></label><label>Tipo de destinação<select name="id_tipo_destinacao" data-destination-types required><option value="">Selecione</option></select></label><div class="field-row"><label>Quantidade<input name="quantidade" type="number" min="0.01" step="0.01" required></label><label>Unidade<input name="unidade_medida" placeholder="kg, un…" required></label></div><label>Condição<input name="condicao" required></label><label>Responsável<input name="responsavel" required></label><div class="field-row"><label>Data inicial<input name="data_inicio" type="date" required></label><label>Data final<input name="data_fim" type="date"></label></div><label>Local de retirada<input name="local" required></label><div class="field-row"><label>Preço original<input name="preco_original" type="number" min="0" step="0.01"></label><label>Preço final<input name="preco_final" type="number" min="0" step="0.01"></label></div><button class="primary-action" type="submit">Publicar destinação</button></form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="app-dialog" data-surplus-dialog><form method="dialog" class="dialog-close-row"><button aria-label="Fechar">×</button></form><form class="app-form" data-surplus-form><div><p class="kicker">Novo registro</p><h2>Cadastrar excedente</h2></div><label>Nome do produto<input name="nome" required></label><label>Categoria<input name="categoria" required></label><label>Descrição<textarea name="descricao"></textarea></label><div class="field-row"><label>Quantidade<input name="quantidade" type="number" min="0.01" step="0.01" required></label><label>Unidade<select name="unidade_medida"><option>kg</option><option>unidade</option><option>litro</option><option>caixa</option></select></label></div><div class="field-row"><label>Produção<input name="data_producao" type="date"></label><label>Validade<input name="validade" type="date" required></label></div><label>Condição<input name="condicao" placeholder="Resfriado, ambiente…" required></label><div class="field-row"><label>Embalagem<input name="embalagem"></label><label>Urgência<select name="urgencia"><option>normal</option><option>alta</option><option>urgente</option></select></label></div><button class="primary-action" type="submit">Salvar excedente</button><p class="form-feedback" data-dialog-feedback hidden></p></form></dialog>
+  <dialog class="app-dialog reserve-dialog" data-reserve-dialog>
+    <form method="dialog" class="dialog-close-row"><button aria-label="Fechar">×</button></form>
+    <form class="app-form" data-reserve-form>
+      <div><p class="kicker">Confirmar reserva</p><h2 data-reserve-name>Excedente</h2></div>
+      <p class="dialog-description" data-reserve-description></p>
+      <input type="hidden" name="id_destinacao">
+      <label>Quantidade<input name="quantidade" type="number" min="0.01" step="0.01" required><small data-reserve-limit></small></label>
+      <button class="primary-action" type="submit">Confirmar reserva</button>
+    </form>
+  </dialog>
+  <div class="toast" data-toast hidden></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
